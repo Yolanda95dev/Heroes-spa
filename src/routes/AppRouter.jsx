@@ -1,7 +1,8 @@
 import { Navigate, Routes, Route } from 'react-router-dom'
 
 import { NavBar } from '../ui'
-import { MarvelPage, DcPage, LoginPage } from '../heroes'
+import { LoginPage } from '../auth'
+import { MarvelPage, DcPage } from '../heroes'
 
 
 export const AppRouter = () => {
