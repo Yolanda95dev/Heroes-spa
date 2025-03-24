@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import 'animate.css'
 
 const CharacterByHero = (alter_ego, characters) =>
     (alter_ego === characters)
@@ -18,7 +19,7 @@ export const HeroCard = ({
     const heroImageUrl = `/assets/heroes/${id}.jpg`
 
     return (
-        <div className="col ">
+        <div className="col animate__animated animate__fadeIn">
             <div className="card">
                 <div className="row no-gutters">
 
