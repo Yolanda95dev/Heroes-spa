@@ -19,7 +19,6 @@ export const SearchPage = () => {
 
   const onSearchSubmit = (event) => {
     event.preventDefault()
-    // if (searchText.trim().length <= 1) return
     navigate(`?q=${searchText}`.toLowerCase().trim())
 
   }

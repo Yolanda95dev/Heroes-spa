@@ -9,10 +9,15 @@ export const LoginPage = () => {
 
 
   const onLogin = () => {
+
+    const lastPath = localStorage.getItem('lastPath') || '/'
+
     login('Yolanda')
-    navigate('/', {
-      replace: true
-    })
+    setTimeout(()=>{
+      navigate(lastPath, {
+        replace: true
+      })
+    },100)
   }
 
   return (
