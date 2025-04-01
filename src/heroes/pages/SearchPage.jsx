@@ -7,8 +7,9 @@ import 'animate.css'
 export const SearchPage = () => {
 
   const navigate = useNavigate()
+
   const [searchParams] = useSearchParams()
-  const query = searchParams.get("q")
+  const query = searchParams.get("q") ||''
   const heroes = getHeroesByName(query)
   const showSearch = (query.length === 0)
   const showError = ((query.length > 0) && (heroes.length === 0))
@@ -19,7 +20,7 @@ export const SearchPage = () => {
 
   const onSearchSubmit = (event) => {
     event.preventDefault()
-    navigate(`?q=${searchText}`.toLowerCase().trim())
+    if(searchText) navigate(`?q=${searchText}`.toLowerCase().trim())
 
   }
 
@@ -32,7 +33,7 @@ export const SearchPage = () => {
         <div className="col-5">
           <h4>Searching</h4>
           <hr />
-          <form onSubmit={onSearchSubmit} >
+          <form aria-label='form' onSubmit={onSearchSubmit} >
             <input
               type="text"
               placeholder="Search a hero"
@@ -57,7 +58,7 @@ export const SearchPage = () => {
             Search a hero
           </div>
 
-          <div className="alert alert-danger animate__animated animate__fadeIn" style={{ display: showError ? '' : 'none' }} >
+          <div aria-label='alert-danger'className="alert alert-danger animate__animated animate__fadeIn" style={{ display: showError ? '' : 'none' }} >
             No hero with <b>{query}</b>
           </div>
 
